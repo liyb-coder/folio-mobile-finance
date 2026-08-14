@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Folio Focused Design QA</title>
+    <style>
+      * { box-sizing: border-box; }
+      body { margin: 0; padding: 28px; background: #18191c; color: white; font: 14px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+      h1 { width: 1120px; margin: 0 auto 20px; font-size: 20px; }
+      main { width: 1120px; margin: 0 auto; display: grid; gap: 24px; }
+      figure { margin: 0; padding: 12px; border-radius: 16px; background: #25262a; }
+      figcaption { margin-bottom: 10px; color: #c8c9ce; }
+      .crop { width: 1096px; height: 500px; overflow: hidden; border-radius: 10px; background: white; position: relative; }
+      .source img { width: 1096px; height: auto; display: block; }
+      .implementation img { width: 1096px; height: auto; display: block; }
+    </style>
+  </head>
+  <body>
+    <h1>首屏层级、字体、色彩与卡片节奏 · 聚焦比对</h1>
+    <main>
+      <figure class="source"><figcaption>参考图顶部区域</figcaption><div class="crop"><img src="/reference-dashboard.png" alt="参考图顶部区域" /></div></figure>
+      <figure class="implementation"><figcaption>Folio 实现顶部区域</figcaption><div class="crop"><img src="/implementation-desktop-viewport-v2.png" alt="Folio 实现顶部区域" /></div></figure>
+    </main>
+  </body>
+</html>

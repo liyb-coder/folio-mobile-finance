@@ -1,0 +1,20 @@
+{
+  "appid": "touristappid",
+  "compileType": "miniprogram",
+  "description": "Folio WeChat mini-program M0 architecture spike",
+  "libVersion": "trial",
+  "miniprogramRoot": "miniprogram/",
+  "projectname": "folio-wechat-mini",
+  "setting": {
+    "checkInvalidKey": true,
+    "coverView": true,
+    "enhance": true,
+    "es6": true,
+    "minified": true,
+    "postcss": true,
+    "urlCheck": true
+  },
+  "simulatorType": "wechat",
+  "srcMiniprogramRoot": "miniprogram/"
+}
+

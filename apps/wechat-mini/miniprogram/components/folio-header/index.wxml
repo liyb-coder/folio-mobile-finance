@@ -1,0 +1,21 @@
+<view class="header-wrap">
+  <view class="folio-header">
+    <button class="menu-button" aria-label="打开菜单" bindtap="toggleMenu">
+      <image class="menu-icon" src="/assets/icons/list.png" mode="aspectFit" />
+    </button>
+    <image class="brand-logo" src="/assets/brand/folio-logo.png" mode="aspectFit" />
+    <text class="brand-name">Folio</text>
+    <view class="header-spacer" />
+    <text class="demo-chip">虚构演示</text>
+  </view>
+  <view wx:if="{{menuOpen}}" class="menu-panel">
+    <button class="menu-item" data-url="/pages/cashflow/index" bindtap="openPage">
+      <image src="/assets/icons/trend.png" mode="aspectFit" />
+      <text>流水与趋势</text>
+    </button>
+    <button class="menu-item" data-url="/pages/settings/index" bindtap="openPage">
+      <image src="/assets/icons/gear.png" mode="aspectFit" />
+      <text>设置与数据模式</text>
+    </button>
+  </view>
+</view>

@@ -1,0 +1,94 @@
+page {
+  --folio-ink: #25262a;
+  --folio-muted: #7c7e88;
+  --folio-line: #e5e5e9;
+  --folio-canvas: #f2f2f5;
+  --folio-card: #fbfbfc;
+  --folio-lilac: #dedee8;
+  --folio-purple-soft: #ebe8ff;
+  --folio-purple: #7966ca;
+  --folio-lime: #c7f348;
+  --folio-lime-soft: #eef8c9;
+  --folio-mint: #e4f2ec;
+  background: var(--folio-canvas);
+  color: var(--folio-ink);
+  font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Helvetica Neue", sans-serif;
+  font-size: 28rpx;
+}
+
+button {
+  font: inherit;
+}
+
+button::after {
+  border: 0;
+}
+
+.page-shell {
+  box-sizing: border-box;
+  min-height: 100vh;
+  padding: 18rpx 24rpx 190rpx;
+}
+
+.demo-strip {
+  display: inline-flex;
+  align-items: center;
+  margin: 4rpx 0 18rpx;
+  padding: 9rpx 16rpx;
+  border-radius: 999rpx;
+  background: #e8e8ed;
+  color: #636570;
+  font-size: 22rpx;
+  font-weight: 600;
+}
+
+.section-title {
+  margin: 30rpx 4rpx 18rpx;
+  font-size: 32rpx;
+  font-weight: 700;
+  letter-spacing: -0.5rpx;
+}
+
+.folio-card {
+  box-sizing: border-box;
+  border: 1rpx solid rgba(37, 38, 42, 0.05);
+  border-radius: 34rpx;
+  background: var(--folio-card);
+  box-shadow: 0 18rpx 46rpx rgba(37, 38, 42, 0.055);
+}
+
+.eyebrow {
+  color: var(--folio-muted);
+  font-size: 22rpx;
+  font-weight: 600;
+  letter-spacing: 0.5rpx;
+}
+
+.amount {
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -1.8rpx;
+}
+
+.subtle {
+  color: var(--folio-muted);
+  font-size: 24rpx;
+  line-height: 1.55;
+}
+
+.icon-image {
+  display: block;
+  width: 38rpx;
+  height: 38rpx;
+}
+
+.full-width-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 96rpx;
+  border-radius: 28rpx;
+  background: var(--folio-ink);
+  color: #fff;
+  font-size: 28rpx;
+  font-weight: 700;
+}

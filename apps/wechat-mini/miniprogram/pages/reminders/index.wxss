@@ -1,0 +1,119 @@
+.reminders-page {
+  padding-top: 0;
+}
+
+.milestone-card {
+  display: flex;
+  align-items: center;
+  min-height: 200rpx;
+  padding: 32rpx;
+  background: #eef8c9;
+}
+
+.milestone-icon,
+.manager-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 74rpx;
+  width: 74rpx;
+  height: 74rpx;
+  border-radius: 24rpx;
+  background: rgba(255, 255, 255, 0.58);
+}
+
+.milestone-icon image,
+.manager-icon image {
+  width: 38rpx;
+  height: 38rpx;
+}
+
+.milestone-copy {
+  flex: 1;
+  margin-left: 24rpx;
+}
+
+.milestone-title {
+  display: block;
+  margin: 8rpx 0 10rpx;
+  font-size: 31rpx;
+  font-weight: 750;
+}
+
+.reminder-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 30rpx 4rpx 18rpx;
+}
+
+.reminder-heading .section-title {
+  display: block;
+  margin: 0 0 5rpx;
+}
+
+.reminder-heading button {
+  margin: 0;
+  padding: 11rpx 20rpx;
+  border-radius: 20rpx;
+  background: #25262a;
+  color: #fff;
+  font-size: 21rpx;
+  font-weight: 650;
+}
+
+.manager-card {
+  display: flex;
+  align-items: center;
+  min-height: 148rpx;
+  margin-top: 18rpx;
+  padding: 26rpx;
+}
+
+.manager-card.rent {
+  background: #eef8c9;
+}
+
+.manager-card.insurance {
+  background: #ebe8ff;
+}
+
+.manager-card.maturity {
+  background: #e4f2ec;
+}
+
+.manager-copy {
+  flex: 1;
+  min-width: 0;
+  margin-left: 22rpx;
+}
+
+.manager-name,
+.manager-state {
+  display: block;
+}
+
+.manager-name {
+  font-size: 27rpx;
+  font-weight: 750;
+}
+
+.manager-state {
+  margin-top: 9rpx;
+  color: #757781;
+  font-size: 19rpx;
+}
+
+.manager-amount {
+  margin-left: 14rpx;
+  font-size: 24rpx;
+  font-weight: 750;
+}
+
+.data-note {
+  display: block;
+  padding: 24rpx 0 0;
+  color: #8b8d96;
+  font-size: 18rpx;
+  text-align: center;
+}

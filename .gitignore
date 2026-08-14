@@ -1,0 +1,41 @@
+# Dependencies and generated output
+node_modules/
+dist/
+.vite/
+coverage/
+.DS_Store
+
+# Local runtime configuration
+.env
+.env.*
+!.env.example
+.folio-mvp-acceptance.json
+
+# Real financial data and encrypted/local stores
+private-data/
+.folio-private/
+imports/private/
+backups/
+exports/private/
+*.folio-backup
+*.folio-export.zip
+*.local.db
+*.local.db-*
+*.local.sqlite
+*.local.sqlite-*
+*.local.sqlite3
+*.local.sqlite3-*
+
+# Tauri / Rust output and signing material
+src-tauri/target/
+target/
+*.p12
+*.p8
+*.mobileprovision
+*.keystore
+*.jks
+
+# Local logs and temporary files
+*.log
+*.tmp
+*.temp

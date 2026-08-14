@@ -1,0 +1,35 @@
+<view class="page-shell cashflow-page">
+  <folio-header />
+  <view class="cashflow-summary folio-card">
+    <text class="eyebrow">本月收支结果</text>
+    <text class="summary-value amount">+¥12,680.00</text>
+    <view class="summary-row">
+      <view><text>收入</text><text class="amount">¥28,000</text></view>
+      <view><text>支出</text><text class="amount">¥15,320</text></view>
+    </view>
+  </view>
+
+  <view class="trend-card folio-card">
+    <view class="trend-heading">
+      <view><text class="eyebrow">近六个月</text><text class="card-title">收入与支出趋势</text></view>
+      <image src="/assets/icons/trend.png" mode="aspectFit" />
+    </view>
+    <view class="trend-summary-row">
+      <view><text>近 6 月收入</text><text class="amount">¥168,400</text></view>
+      <view><text>近 6 月支出</text><text class="amount">¥94,620</text></view>
+      <view><text>结余率</text><text>43.8%</text></view>
+    </view>
+  </view>
+
+  <view class="list-heading">
+    <text class="section-title">最近流水</text>
+    <button bindtap="showPending">添加</button>
+  </view>
+  <view class="flow-list folio-card">
+    <view wx:for="{{cashflow}}" wx:key="id" class="flow-row">
+      <view class="flow-dot {{item.direction}}" />
+      <view class="flow-copy"><text class="flow-title">{{item.title}}</text><text class="flow-meta">{{item.category}} · {{item.date}}</text></view>
+      <text class="flow-amount {{item.direction}} amount">{{item.amount}}</text>
+    </view>
+  </view>
+</view>

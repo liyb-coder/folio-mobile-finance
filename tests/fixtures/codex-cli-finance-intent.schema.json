@@ -1,0 +1,52 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "intent": {
+      "type": "string",
+      "enum": [
+        "transaction",
+        "account",
+        "holding_operation",
+        "reminder",
+        "planning",
+        "unsupported"
+      ]
+    },
+    "confidenceBps": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 10000
+    },
+    "summary": {
+      "type": "string",
+      "maxLength": 240
+    },
+    "evidenceQuotes": {
+      "type": "array",
+      "maxItems": 8,
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 240
+      }
+    },
+    "warnings": {
+      "type": "array",
+      "maxItems": 8,
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 240
+      }
+    }
+  },
+  "required": [
+    "intent",
+    "confidenceBps",
+    "summary",
+    "evidenceQuotes",
+    "warnings"
+  ],
+  "additionalProperties": false
+}

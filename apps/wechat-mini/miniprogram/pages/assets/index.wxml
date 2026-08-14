@@ -1,0 +1,45 @@
+<view class="page-shell assets-page">
+  <folio-header />
+
+  <view class="assets-total folio-card">
+    <view>
+      <text class="eyebrow">总资产</text>
+      <text class="assets-amount amount">¥{{summary.totalAssets}}</text>
+      <text class="subtle">6 个虚构账户·不计入真实账本</text>
+    </view>
+    <button class="hero-add-button" aria-label="添加资产" bindtap="showPending">
+      <image src="/assets/icons/plus.png" mode="aspectFit" />
+    </button>
+  </view>
+
+  <view class="allocation-card folio-card">
+    <view class="section-heading-row">
+      <view>
+        <text class="card-title">资产配置</text>
+        <text class="subtle">从持仓明细中形成理财地图</text>
+      </view>
+    </view>
+    <view class="view-tabs">
+      <text class="active">资产明细</text>
+      <text>产品表现</text>
+      <text>AI 调仓建议</text>
+    </view>
+    <view class="filter-tabs">
+      <text class="active">全部</text>
+      <text>活期</text>
+      <text>理财</text>
+      <text>基金</text>
+      <text>保险</text>
+    </view>
+    <view class="account-list">
+      <view wx:for="{{accounts}}" wx:key="id" class="account-row">
+        <view class="account-mark {{item.tint}}">{{item.initial}}</view>
+        <view class="account-copy">
+          <text class="account-name">{{item.name}}</text>
+          <text class="account-type">{{item.type}}</text>
+        </view>
+        <text class="account-balance amount">¥{{item.balance}}</text>
+      </view>
+    </view>
+  </view>
+</view>

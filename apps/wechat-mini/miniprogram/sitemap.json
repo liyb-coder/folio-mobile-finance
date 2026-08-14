@@ -1,0 +1,10 @@
+{
+  "desc": "M0 architecture spike",
+  "rules": [
+    {
+      "action": "disallow",
+      "page": "*"
+    }
+  ]
+}
+

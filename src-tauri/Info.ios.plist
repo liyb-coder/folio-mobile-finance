@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <key>NSMicrophoneUsageDescription</key>
+  <string>Folio 仅在你主动点击后使用麦克风，将本次口述在设备上转换为可核对文字。</string>
+  <key>NSSpeechRecognitionUsageDescription</key>
+  <string>Folio 使用 Apple 设备内语音识别生成本次核对稿，不保存原始音频。</string>
+  <key>NSFaceIDUsageDescription</key>
+  <string>Folio 使用设备生物识别快速解锁本地财务数据；应用不会接收或保存面容或指纹数据。</string>
+</dict>
+</plist>

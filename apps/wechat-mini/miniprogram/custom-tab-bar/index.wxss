@@ -1,0 +1,83 @@
+.tab-shell {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 80;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-around;
+  box-sizing: border-box;
+  height: calc(132rpx + env(safe-area-inset-bottom));
+  padding: 12rpx 12rpx calc(12rpx + env(safe-area-inset-bottom));
+  border-top: 1rpx solid rgba(37, 38, 42, 0.08);
+  background: rgba(250, 250, 252, 0.97);
+}
+
+.tab-item {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  min-width: 0;
+  height: 98rpx;
+  margin: 0;
+  padding: 0;
+  border-radius: 24rpx;
+  background: transparent;
+  color: #858792;
+  font-size: 20rpx;
+  line-height: 1.1;
+}
+
+.tab-icon-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 58rpx;
+  height: 50rpx;
+  margin-bottom: 6rpx;
+  border-radius: 18rpx;
+}
+
+.tab-icon {
+  width: 36rpx;
+  height: 36rpx;
+  opacity: 0.64;
+}
+
+.is-active {
+  color: #25262a;
+  font-weight: 650;
+}
+
+.is-active .tab-icon-wrap {
+  background: #e9e6ff;
+}
+
+.is-active .tab-icon {
+  opacity: 1;
+}
+
+.capture-tab {
+  position: relative;
+  top: -18rpx;
+  color: #25262a;
+  font-weight: 650;
+}
+
+.capture-tab .tab-icon-wrap {
+  width: 82rpx;
+  height: 82rpx;
+  margin-bottom: 5rpx;
+  border-radius: 30rpx;
+  background: #25262a;
+  box-shadow: 0 12rpx 28rpx rgba(37, 38, 42, 0.2);
+}
+
+.capture-tab .tab-icon {
+  width: 40rpx;
+  height: 40rpx;
+  opacity: 1;
+}

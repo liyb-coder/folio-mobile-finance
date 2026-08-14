@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Folio V2 Focus QA</title>
+    <style>
+      * { box-sizing: border-box; }
+      body { margin: 0; padding: 24px; color: #f8f8f9; background: #17181b; font: 13px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+      h1 { margin: 0 0 5px; font-size: 21px; }
+      p { margin: 0 0 18px; color: #a6a8af; }
+      main { display: grid; grid-template-columns: 250px 320px 320px minmax(0, 1fr); gap: 12px; align-items: start; }
+      figure { margin: 0; padding: 10px; border-radius: 14px; background: #25262a; }
+      figcaption { min-height: 30px; margin-bottom: 8px; color: #c8cad0; font-size: 11px; }
+      img { display: block; width: 100%; height: 780px; border-radius: 9px; object-fit: contain; object-position: top; background: #eeeff1; }
+      figure:first-child img { height: 220px; }
+      figure:last-child img { object-fit: cover; object-position: center bottom; }
+    </style>
+  </head>
+  <body>
+    <h1>重点区域 QA</h1>
+    <p>核对移动端黑色动作块的明确图标、提醒信息架构，以及模拟沙盘与真实资产的视觉隔离。</p>
+    <main>
+      <figure><figcaption>参考：动作区必须具有明确图标</figcaption><img src="/assets/qa/ref-mobile-action.png" alt="动作图标参考" /></figure>
+      <figure><figcaption>资产页：黑色新增按钮显示 “+”</figcaption><img src="/folio-v2-mobile-assets.png" alt="移动端资产页" /></figure>
+      <figure><figcaption>提醒页：生成催租按钮显示 AI 图标</figcaption><img src="/folio-v2-mobile-reminders.png" alt="移动端提醒页" /></figure>
+      <figure><figcaption>规划页：投资组合模拟沙盘明确标注“仅模拟”</figcaption><img src="/folio-v2-sandbox.png" alt="投资组合模拟沙盘" /></figure>
+    </main>
+  </body>
+</html>

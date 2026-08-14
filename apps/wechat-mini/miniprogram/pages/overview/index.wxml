@@ -1,0 +1,56 @@
+<view class="page-shell overview-page">
+  <folio-header />
+
+  <view class="hero-card folio-card">
+    <view class="hero-topline">
+      <text class="eyebrow">家庭净资产</text>
+      <text class="update-label">今日更新</text>
+    </view>
+    <text class="hero-amount amount">¥{{summary.netWorth}}</text>
+    <view class="hero-meta">
+      <view>
+        <text class="meta-label">总资产</text>
+        <text class="meta-value amount">¥{{summary.totalAssets}}</text>
+      </view>
+      <view>
+        <text class="meta-label">总负债</text>
+        <text class="meta-value amount">¥{{summary.liabilities}}</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="focus-card">
+    <view class="focus-heading">
+      <view class="focus-icon">
+        <image src="/assets/icons/sparkle.png" mode="aspectFit" />
+      </view>
+      <view>
+        <text class="focus-kicker">AI 今日重点</text>
+        <text class="focus-title">有一笔闲置资金可以再规划</text>
+      </view>
+    </view>
+    <text class="focus-copy">活期可用中有 50,000 元超过你设定的备用金线，建议先核对本月保费后再做配置。</text>
+    <button class="focus-action" bindtap="openCashflow">查看资金去向</button>
+  </view>
+
+  <view class="metric-grid">
+    <view class="metric-card lime folio-card">
+      <text class="eyebrow">活期可用</text>
+      <text class="metric-value amount">¥{{summary.currentAvailable}}</text>
+      <text class="metric-note">已扣除近期提醒预留</text>
+    </view>
+    <view class="metric-card folio-card">
+      <text class="eyebrow">本月净流入</text>
+      <text class="metric-value amount">{{summary.monthlyCashflow}}</text>
+      <text class="metric-note">较上月稳定</text>
+    </view>
+  </view>
+
+  <view class="next-card folio-card">
+    <view>
+      <text class="eyebrow">下一个重要节点</text>
+      <text class="next-title">8月20日 · 年度保费</text>
+    </view>
+    <text class="next-amount amount">¥10,000</text>
+  </view>
+</view>

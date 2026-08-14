@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Folio 品牌与响应式 Design QA</title>
+    <style>
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        padding: 32px;
+        background: #17181b;
+        color: #f7f7f8;
+        font: 14px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      }
+      header { margin-bottom: 24px; }
+      h1 { margin: 0 0 8px; font-size: 24px; }
+      p { margin: 0; color: #a9abb3; }
+      h2 { margin: 30px 0 14px; font-size: 16px; }
+      .brand-grid {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 16px;
+      }
+      .screen-grid {
+        display: grid;
+        grid-template-columns: minmax(0, 2fr) minmax(280px, .7fr);
+        gap: 18px;
+        align-items: start;
+      }
+      figure {
+        margin: 0;
+        padding: 14px;
+        border: 1px solid #34363d;
+        border-radius: 18px;
+        background: #232429;
+      }
+      figcaption { margin-bottom: 10px; color: #d8d9dd; }
+      img {
+        display: block;
+        width: 100%;
+        height: auto;
+        border-radius: 12px;
+        background: #f7f7f8;
+      }
+      .brand-grid img { aspect-ratio: 1; object-fit: cover; }
+      .final { box-shadow: 0 0 0 2px #a68cff inset; }
+      .tag {
+        display: inline-block;
+        margin-left: 8px;
+        padding: 2px 7px;
+        border-radius: 999px;
+        background: #342d52;
+        color: #c7baff;
+        font-size: 11px;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Folio 品牌资产与响应式实现 · 同屏比对</h1>
+      <p>核对 Logo 紫色平行线与右上箭头、猫猫头像，以及桌面 / 移动端落位。</p>
+    </header>
+
+    <h2>品牌资产</h2>
+    <section class="brand-grid">
+      <figure>
+        <figcaption>用户选定 Logo 3</figcaption>
+        <img src="/assets/brand/source-logo-selected.png" alt="用户选定的 Logo 3" />
+      </figure>
+      <figure class="final">
+        <figcaption>最终 Logo <span class="tag">箭头 + 紫色平行线</span></figcaption>
+        <img src="/assets/brand/folio-logo.png" alt="最终 Folio Logo" />
+      </figure>
+      <figure>
+        <figcaption>用户选定猫猫头像</figcaption>
+        <img src="/assets/brand/source-cat-selected.png" alt="用户选定的猫猫头像" />
+      </figure>
+      <figure class="final">
+        <figcaption>最终头像 <span class="tag">界面优化尺寸</span></figcaption>
+        <img src="/assets/brand/folio-cat-avatar.png" alt="最终 Folio 猫猫头像" />
+      </figure>
+    </section>
+
+    <h2>响应式实现</h2>
+    <section class="screen-grid">
+      <figure>
+        <figcaption>桌面端 · 1440 × 1000</figcaption>
+        <img src="/folio-final-desktop.png" alt="Folio 桌面端实现" />
+      </figure>
+      <figure>
+        <figcaption>移动端 · 390 × 844</figcaption>
+        <img src="/folio-final-mobile.png" alt="Folio 移动端实现" />
+      </figure>
+    </section>
+  </body>
+</html>

@@ -1,0 +1,341 @@
+.capture-page {
+  padding-top: 0;
+}
+
+.capture-intro {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 22rpx 34rpx 32rpx;
+  text-align: center;
+}
+
+.assistant-mark {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 94rpx;
+  height: 94rpx;
+  border-radius: 30rpx;
+  background: #c7f348;
+}
+
+.assistant-mark image {
+  width: 50rpx;
+  height: 50rpx;
+}
+
+.capture-title {
+  margin-top: 24rpx;
+  font-size: 40rpx;
+  font-weight: 800;
+  line-height: 1.28;
+  letter-spacing: -1.2rpx;
+}
+
+.capture-copy {
+  margin-top: 16rpx;
+  color: #7c7e88;
+  font-size: 23rpx;
+  line-height: 1.6;
+}
+
+.mode-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 12rpx;
+}
+
+.mode-button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 154rpx;
+  margin: 0;
+  padding: 18rpx 10rpx 14rpx;
+  border: 2rpx solid transparent;
+  border-radius: 26rpx;
+  background: #fbfbfc;
+  color: #25262a;
+}
+
+.mode-button.selected {
+  border-color: #9a8ce0;
+  background: #eeecfa;
+}
+
+.mode-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 56rpx;
+  height: 56rpx;
+  border-radius: 18rpx;
+}
+
+.mode-icon.lime {
+  background: #c7f348;
+}
+
+.mode-icon.lilac {
+  background: #ebe8ff;
+}
+
+.mode-icon image {
+  width: 31rpx;
+  height: 31rpx;
+}
+
+.mode-name,
+.mode-note {
+  display: block;
+}
+
+.mode-name {
+  margin-top: 12rpx;
+  font-size: 22rpx;
+  font-weight: 700;
+}
+
+.mode-note {
+  margin-top: 3rpx;
+  color: #858792;
+  font-size: 16rpx;
+}
+
+.voice-composition {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 540rpx;
+  margin-top: 18rpx;
+  padding: 44rpx 34rpx 30rpx;
+  text-align: center;
+}
+
+.voice-kicker {
+  color: #779516;
+  font-size: 22rpx;
+  font-weight: 750;
+}
+
+.voice-example {
+  max-width: 610rpx;
+  margin-top: 17rpx;
+  font-size: 29rpx;
+  font-weight: 650;
+  line-height: 1.55;
+}
+
+.waveform {
+  width: 88%;
+  height: 116rpx;
+  margin-top: 46rpx;
+}
+
+.voice-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 112rpx;
+  height: 112rpx;
+  margin: 30rpx 0 0;
+  padding: 0;
+  border: 16rpx solid #e9eed8;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 14rpx 32rpx rgba(37, 38, 42, 0.14);
+}
+
+.voice-button image {
+  width: 47rpx;
+  height: 47rpx;
+}
+
+.device-status {
+  margin-top: 20rpx;
+  color: #858792;
+  font-size: 19rpx;
+}
+
+.pending-panel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 430rpx;
+  margin-top: 24rpx;
+  padding: 58rpx 42rpx 38rpx;
+  text-align: center;
+}
+
+.pending-panel > image {
+  width: 74rpx;
+  height: 74rpx;
+}
+
+.pending-title {
+  margin-top: 24rpx;
+  font-size: 31rpx;
+  font-weight: 750;
+}
+
+.pending-panel .subtle {
+  margin: 16rpx 0 34rpx;
+}
+
+.pending-panel .full-width-button {
+  width: 100%;
+  margin-top: auto;
+}
+
+.text-capture-panel {
+  margin-top: 24rpx;
+}
+
+.text-editor {
+  padding: 34rpx;
+}
+
+.text-editor-title,
+.review-summary,
+.review-kind,
+.review-title,
+.review-evidence {
+  display: block;
+}
+
+.text-editor-title {
+  font-size: 29rpx;
+  font-weight: 750;
+}
+
+.capture-textarea {
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 220rpx;
+  margin: 22rpx 0 26rpx;
+  padding: 26rpx;
+  border-radius: 24rpx;
+  background: #f2f2f5;
+  font-size: 27rpx;
+  line-height: 1.65;
+}
+
+.capture-error {
+  display: block;
+  margin: -8rpx 0 22rpx;
+  color: #98634b;
+  font-size: 21rpx;
+  line-height: 1.5;
+}
+
+.review-heading {
+  padding: 8rpx 8rpx 18rpx;
+}
+
+.review-kicker {
+  color: #779516;
+  font-size: 21rpx;
+  font-weight: 750;
+}
+
+.review-summary {
+  margin-top: 12rpx;
+  font-size: 29rpx;
+  font-weight: 750;
+  line-height: 1.45;
+}
+
+.review-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16rpx;
+}
+
+.review-item {
+  display: flex;
+  padding: 26rpx;
+}
+
+.review-index {
+  display: flex;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+  width: 52rpx;
+  height: 52rpx;
+  margin-right: 19rpx;
+  border-radius: 18rpx;
+  background: #eef8c9;
+  font-size: 22rpx;
+  font-weight: 800;
+}
+
+.review-content {
+  min-width: 0;
+}
+
+.review-kind {
+  color: #7966ca;
+  font-size: 19rpx;
+  font-weight: 700;
+}
+
+.review-title {
+  margin-top: 7rpx;
+  font-size: 26rpx;
+  font-weight: 750;
+  line-height: 1.45;
+}
+
+.review-evidence {
+  margin-top: 10rpx;
+  color: #858792;
+  font-size: 19rpx;
+  line-height: 1.5;
+}
+
+.review-actions {
+  display: grid;
+  grid-template-columns: 0.8fr 1.2fr;
+  gap: 14rpx;
+  margin-top: 22rpx;
+}
+
+.secondary-button,
+.confirm-disabled {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 90rpx;
+  margin: 0;
+  border-radius: 26rpx;
+  font-size: 24rpx;
+  font-weight: 700;
+}
+
+.secondary-button {
+  background: #e8e8ed;
+  color: #25262a;
+}
+
+.confirm-disabled {
+  background: #25262a;
+  color: #fff;
+  opacity: 0.45;
+}
+
+.safety-cue {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 18rpx 12rpx 0;
+  color: #6c7847;
+  font-size: 19rpx;
+}
+
+.safety-cue image {
+  width: 29rpx;
+  height: 29rpx;
+  margin-right: 11rpx;
+}

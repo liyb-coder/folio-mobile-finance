@@ -1,0 +1,87 @@
+<view class="page-shell capture-page">
+  <folio-header />
+
+  <view class="capture-intro">
+    <view class="assistant-mark"><image src="/assets/icons/sparkle.png" mode="aspectFit" /></view>
+    <text class="capture-title">把刚刚发生的变化告诉 Folio</text>
+    <text class="capture-copy">语音、截图或文字都可以。AI 先整理，你再逐项确认。</text>
+  </view>
+
+  <view class="mode-row">
+    <button class="mode-button {{selectedMode === 'voice' ? 'selected' : ''}}" data-mode="voice" bindtap="selectMode">
+      <view class="mode-icon lime"><image src="/assets/icons/microphone-dark.png" mode="aspectFit" /></view>
+      <text class="mode-name">语音</text><text class="mode-note">随手说一段</text>
+    </button>
+    <button class="mode-button {{selectedMode === 'file' ? 'selected' : ''}}" data-mode="file" bindtap="selectMode">
+      <view class="mode-icon lilac"><image src="/assets/icons/image.png" mode="aspectFit" /></view>
+      <text class="mode-name">截图 / 文档</text><text class="mode-note">图片、PDF</text>
+    </button>
+    <button class="mode-button {{selectedMode === 'text' ? 'selected' : ''}}" data-mode="text" bindtap="selectMode">
+      <view class="mode-icon lilac"><image src="/assets/icons/pencil.png" mode="aspectFit" /></view>
+      <text class="mode-name">文字</text><text class="mode-note">直接补充</text>
+    </button>
+  </view>
+
+  <view wx:if="{{selectedMode === 'voice'}}" class="voice-composition">
+    <text class="voice-kicker">说出这笔变化</text>
+    <text class="voice-example">例如：建行新增租金收入 8,000 元，8月20日提醒我交保费 10,000 元。</text>
+    <image class="waveform" src="/assets/icons/waveform.png" mode="scaleToFill" />
+    <button class="voice-button" aria-label="开始语音输入" bindtap="showPending">
+      <image src="/assets/icons/microphone-dark.png" mode="aspectFit" />
+    </button>
+    <text class="device-status">设备内语音转写将在下一里程碑接入</text>
+  </view>
+
+  <view wx:elif="{{selectedMode === 'file'}}" class="pending-panel folio-card">
+    <image src="/assets/icons/image.png" mode="aspectFit" />
+    <text class="pending-title">选择财务截图或 PDF</text>
+    <text class="subtle">本地文本提取与证据坐标将在下一里程碑接入。</text>
+    <button class="full-width-button" bindtap="showPending">选择文件</button>
+  </view>
+
+  <view wx:else class="text-capture-panel">
+    <block wx:if="{{status !== 'review'}}">
+      <view class="text-editor folio-card">
+        <text class="text-editor-title">写下刚刚发生的变化</text>
+        <textarea
+          class="capture-textarea"
+          value="{{textValue}}"
+          maxlength="40000"
+          auto-height
+          placeholder="例如：建行新增租金收入8000，8月20日提醒我交保费10000。"
+          bindinput="updateText"
+        />
+        <text wx:if="{{errorMessage}}" class="capture-error">{{errorMessage}}</text>
+        <button class="full-width-button" loading="{{status === 'submitting'}}" disabled="{{status === 'submitting'}}" bindtap="submitText">
+          {{status === 'submitting' ? '正在整理…' : '整理为待核对项'}}
+        </button>
+      </view>
+    </block>
+
+    <view wx:else class="review-panel">
+      <view class="review-heading">
+        <text class="review-kicker">AI 已整理 · 等待逐项确认</text>
+        <text class="review-summary">{{proposal.summary}}</text>
+      </view>
+      <view class="review-list">
+        <view wx:for="{{proposal.items}}" wx:key="itemId" class="review-item folio-card">
+          <view class="review-index">{{index + 1}}</view>
+          <view class="review-content">
+            <text class="review-kind">{{item.kind === 'reminder' ? '提醒新增' : item.kind === 'transaction' ? '流水新增' : '财务信息'}}</text>
+            <text class="review-title">{{item.title}}</text>
+            <text class="review-evidence">原话：{{item.evidence[0].quote}}</text>
+          </view>
+        </view>
+      </view>
+      <view class="review-actions">
+        <button class="secondary-button" bindtap="resetTextCapture">返回修改</button>
+        <button class="confirm-disabled" disabled>登录联调后确认写入</button>
+      </view>
+    </view>
+  </view>
+
+  <view class="safety-cue">
+    <image src="/assets/icons/check-shield.png" mode="aspectFit" />
+    <text>所有变化必须经过你的明确确认</text>
+  </view>
+</view>

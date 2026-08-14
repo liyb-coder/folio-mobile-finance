@@ -1,0 +1,151 @@
+.assets-page {
+  padding-top: 0;
+}
+
+.assets-total {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  min-height: 230rpx;
+  padding: 34rpx;
+  background: #dedee8;
+}
+
+.assets-amount {
+  display: block;
+  margin: 14rpx 0 18rpx;
+  font-size: 56rpx;
+  font-weight: 800;
+}
+
+.allocation-card {
+  margin-top: 22rpx;
+  padding: 30rpx 30rpx 0;
+}
+
+.section-heading-row,
+.detail-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.card-title {
+  display: block;
+  margin-top: 8rpx;
+  font-size: 29rpx;
+  font-weight: 700;
+}
+
+.view-tabs,
+.filter-tabs {
+  display: flex;
+  align-items: center;
+  gap: 12rpx;
+  margin-top: 24rpx;
+  color: #7c7e88;
+  font-size: 19rpx;
+}
+
+.view-tabs text,
+.filter-tabs text {
+  padding: 12rpx 18rpx;
+  border-radius: 18rpx;
+  background: #eeeef1;
+}
+
+.view-tabs .active,
+.filter-tabs .active {
+  background: #25262a;
+  color: #fff;
+  font-weight: 700;
+}
+
+.hero-add-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 74rpx;
+  height: 74rpx;
+  margin: 0;
+  padding: 0;
+  border-radius: 25rpx;
+  background: #25262a;
+}
+
+.hero-add-button image {
+  width: 34rpx;
+  height: 34rpx;
+}
+
+.account-list {
+  overflow: hidden;
+  margin-top: 22rpx;
+}
+
+.account-row {
+  display: flex;
+  align-items: center;
+  min-height: 112rpx;
+}
+
+.account-row + .account-row {
+  border-top: 1rpx solid #ececef;
+}
+
+.account-mark {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 62rpx;
+  width: 62rpx;
+  height: 62rpx;
+  border-radius: 20rpx;
+  font-size: 22rpx;
+  font-weight: 800;
+}
+
+.account-mark.lime {
+  background: #eef8c9;
+}
+
+.account-mark.lilac {
+  background: #ebe8ff;
+  color: #6656ae;
+}
+
+.account-mark.mint {
+  background: #e4f2ec;
+  color: #457461;
+}
+
+.account-copy {
+  flex: 1;
+  min-width: 0;
+  margin-left: 20rpx;
+}
+
+.account-name,
+.account-type {
+  display: block;
+}
+
+.account-name {
+  overflow: hidden;
+  font-size: 25rpx;
+  font-weight: 700;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.account-type {
+  margin-top: 7rpx;
+  color: #858792;
+  font-size: 19rpx;
+}
+
+.account-balance {
+  margin-left: 14rpx;
+  font-size: 23rpx;
+  font-weight: 700;
+}

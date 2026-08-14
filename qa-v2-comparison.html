@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Folio V2 Design QA</title>
+    <style>
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        padding: 24px;
+        color: #f7f7f8;
+        background: #17181b;
+        font: 13px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      }
+      header { display: flex; justify-content: space-between; align-items: end; margin-bottom: 16px; }
+      h1 { margin: 0 0 4px; font-size: 22px; }
+      p { margin: 0; color: #a6a8af; }
+      h2 { margin: 17px 0 10px; font-size: 14px; }
+      figure { margin: 0; padding: 9px; border-radius: 13px; background: #25262a; }
+      figcaption { margin-bottom: 7px; color: #c8cad0; font-size: 11px; }
+      img { display: block; width: 100%; border-radius: 8px; background: white; object-fit: contain; }
+      .refs { display: grid; grid-template-columns: repeat(6, 1fr); gap: 9px; }
+      .refs img { height: 150px; }
+      .outputs { display: grid; grid-template-columns: minmax(0, 2.2fr) minmax(260px, .62fr); gap: 12px; align-items: start; }
+      .outputs img { height: 510px; object-fit: cover; object-position: top; }
+      .outputs figure:last-child img { object-fit: contain; background: #eeeff1; }
+      .badge { padding: 6px 9px; border-radius: 999px; color: #26272b; background: #c9ef5b; font-size: 10px; font-weight: 700; }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div><h1>Folio V2 · 参考意图与实现同屏核对</h1><p>参考图只提取交互与信息表达，最终视觉继续使用 Folio 灰紫、荧光绿与深色卡片体系。</p></div>
+      <span class="badge">Desktop 1440×1000 · Mobile 390×844</span>
+    </header>
+    <h2>用户参考：动作图标、闲置资金、配置浮层、管家、提醒、产品表现</h2>
+    <section class="refs">
+      <figure><figcaption>移动端动作图标</figcaption><img src="/assets/qa/ref-mobile-action.png" alt="移动端动作图标参考" /></figure>
+      <figure><figcaption>闲置资金与银行明细</figcaption><img src="/assets/qa/ref-idle-cash.png" alt="闲置资金参考" /></figure>
+      <figure><figcaption>配置悬浮信息</figcaption><img src="/assets/qa/ref-allocation-tooltip.png" alt="配置悬浮参考" /></figure>
+      <figure><figcaption>租金 / 保险管家</figcaption><img src="/assets/qa/ref-managers.png" alt="管家模块参考" /></figure>
+      <figure><figcaption>提醒中心信息架构</figcaption><img src="/assets/qa/ref-reminder-center.png" alt="提醒中心参考" /></figure>
+      <figure><figcaption>产品表现与穿透</figcaption><img src="/assets/qa/ref-product-performance.png" alt="产品表现参考" /></figure>
+    </section>
+    <h2>Folio 实现：桌面总览与移动总览</h2>
+    <section class="outputs">
+      <figure><figcaption>桌面端：去重后的总览、可滑动重点、银行闲置明细、配置交互</figcaption><img src="/folio-v2-desktop.png" alt="Folio V2 桌面端" /></figure>
+      <figure><figcaption>移动端：增强字号、底部中央语音动作</figcaption><img src="/folio-v2-mobile.png" alt="Folio V2 移动端" /></figure>
+    </section>
+  </body>
+</html>

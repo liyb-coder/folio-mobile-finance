@@ -1,0 +1,28 @@
+<view class="tab-shell">
+  <block wx:for="{{tabs}}" wx:key="pagePath">
+    <button
+      wx:if="{{item.capture}}"
+      class="capture-tab tab-item {{selected === index ? 'is-active' : ''}}"
+      data-path="{{item.pagePath}}"
+      aria-label="{{item.text}}"
+      bindtap="switchTab"
+    >
+      <view class="tab-icon-wrap">
+        <image class="tab-icon" src="/assets/icons/microphone-fill.png" mode="aspectFit" />
+      </view>
+      <text>{{item.text}}</text>
+    </button>
+    <button
+      wx:else
+      class="tab-item {{selected === index ? 'is-active' : ''}}"
+      data-path="{{item.pagePath}}"
+      aria-label="{{item.text}}"
+      bindtap="switchTab"
+    >
+      <view class="tab-icon-wrap">
+        <image class="tab-icon" src="{{item.icon}}" mode="aspectFit" />
+      </view>
+      <text>{{item.text}}</text>
+    </button>
+  </block>
+</view>

@@ -1,0 +1,13 @@
+<view class="unlock-page">
+  <view class="unlock-content">
+    <image class="unlock-logo" src="/assets/brand/folio-logo.png" mode="aspectFit" />
+    <text class="unlock-brand">Folio</text>
+    <text class="unlock-title">把和钱有关的事，理得更顺</text>
+    <text class="unlock-copy">当前是小程序 M1 虚构演示，不包含任何真实财务数据。</text>
+    <button class="enter-button" bindtap="enterDemo">
+      <text>进入虚构演示</text>
+      <image src="/assets/icons/arrow-right.png" mode="aspectFit" />
+    </button>
+    <text class="unlock-note">应用密码与真实数据将在后续安全里程碑接入</text>
+  </view>
+</view>

@@ -1,0 +1,32 @@
+{
+  "pages": [
+    "pages/unlock/index",
+    "pages/overview/index",
+    "pages/assets/index",
+    "pages/cashflow/index",
+    "pages/capture/index",
+    "pages/reminders/index",
+    "pages/assistant/index",
+    "pages/settings/index"
+  ],
+  "window": {
+    "backgroundColor": "#f2f2f5",
+    "backgroundTextStyle": "dark",
+    "navigationStyle": "custom"
+  },
+  "tabBar": {
+    "custom": true,
+    "color": "#858792",
+    "selectedColor": "#25262a",
+    "backgroundColor": "#f8f8fa",
+    "list": [
+      { "pagePath": "pages/overview/index", "text": "总览" },
+      { "pagePath": "pages/assets/index", "text": "资产" },
+      { "pagePath": "pages/capture/index", "text": "记一笔" },
+      { "pagePath": "pages/reminders/index", "text": "提醒" },
+      { "pagePath": "pages/assistant/index", "text": "AI 管家" }
+    ]
+  },
+  "sitemapLocation": "sitemap.json",
+  "style": "v2"
+}

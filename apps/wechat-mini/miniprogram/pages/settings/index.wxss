@@ -1,0 +1,101 @@
+.settings-page {
+  padding-top: 0;
+}
+
+.settings-title {
+  display: block;
+  margin-top: 18rpx;
+  font-size: 48rpx;
+  font-weight: 800;
+}
+
+.settings-group {
+  overflow: hidden;
+  margin-top: 28rpx;
+  padding: 0 28rpx;
+}
+
+.setting-row,
+.setting-action {
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 118rpx;
+  margin: 0;
+  padding: 0;
+  border-radius: 0;
+  background: transparent;
+  color: #25262a;
+  text-align: left;
+}
+
+.setting-row + .setting-row,
+.setting-action + .setting-action {
+  border-top: 1rpx solid #ececef;
+}
+
+.setting-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 66rpx;
+  height: 66rpx;
+  border-radius: 21rpx;
+  background: #ebe8ff;
+}
+
+.setting-icon image {
+  width: 34rpx;
+  height: 34rpx;
+}
+
+.setting-copy {
+  flex: 1;
+  margin-left: 20rpx;
+}
+
+.setting-copy text,
+.setting-action view text {
+  display: block;
+}
+
+.setting-copy text:first-child,
+.setting-action view text:first-child {
+  font-size: 25rpx;
+  font-weight: 700;
+}
+
+.setting-copy text:last-child,
+.setting-action view text:last-child {
+  margin-top: 7rpx;
+  color: #858792;
+  font-size: 18rpx;
+}
+
+.setting-state {
+  color: #657c1d;
+  font-size: 20rpx;
+  font-weight: 700;
+}
+
+.setting-state.muted {
+  color: #858792;
+}
+
+.setting-action view {
+  flex: 1;
+}
+
+.setting-action > image {
+  width: 32rpx;
+  height: 32rpx;
+}
+
+.build-note {
+  display: block;
+  margin-top: 30rpx;
+  color: #90929a;
+  font-size: 18rpx;
+  text-align: center;
+}

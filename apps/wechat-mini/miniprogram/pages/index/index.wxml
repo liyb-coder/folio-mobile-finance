@@ -1,0 +1,31 @@
+<view class="page-shell">
+  <view class="brand-row">
+    <view class="brand-mark">F</view>
+    <view>
+      <text class="eyebrow">FOLIO / M0</text>
+      <text class="brand-name">微信小程序架构验证</text>
+    </view>
+  </view>
+
+  <view class="hero">
+    <text class="hero-label">运行时验证</text>
+    <text class="hero-title">原生薄壳，共享财务契约</text>
+    <text class="hero-copy">
+      当前只验证页面、Canvas 与安全边界，不含真实财务数据。
+    </text>
+    <canvas type="2d" id="contractCanvas" class="contract-canvas"></canvas>
+  </view>
+
+  <view class="checkpoint-list">
+    <view class="checkpoint" wx:for="{{checkpoints}}" wx:key="*this">
+      <view class="checkpoint-dot"></view>
+      <text>{{item}}</text>
+    </view>
+  </view>
+
+  <view class="status-row">
+    <text class="status-pill">旅客模式</text>
+    <text class="status-copy">待 AppID 和真机验收</text>
+  </view>
+</view>
+

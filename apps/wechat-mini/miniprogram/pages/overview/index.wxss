@@ -1,0 +1,174 @@
+.overview-page {
+  padding-top: 0;
+}
+
+.hero-card {
+  padding: 38rpx 34rpx 30rpx;
+  background: #dedee8;
+}
+
+.hero-topline {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.update-label {
+  padding: 8rpx 13rpx;
+  border-radius: 999rpx;
+  background: #c7f348;
+  color: #354108;
+  font-size: 19rpx;
+  font-weight: 700;
+}
+
+.hero-amount {
+  display: block;
+  margin-top: 16rpx;
+  font-size: 62rpx;
+  font-weight: 800;
+}
+
+.hero-meta {
+  display: flex;
+  gap: 72rpx;
+  margin-top: 36rpx;
+}
+
+.meta-label,
+.meta-value {
+  display: block;
+}
+
+.meta-label {
+  color: #7c7e88;
+  font-size: 20rpx;
+}
+
+.meta-value {
+  margin-top: 8rpx;
+  font-size: 24rpx;
+  font-weight: 650;
+}
+
+.focus-card {
+  margin-top: 22rpx;
+  padding: 30rpx;
+  border-radius: 34rpx;
+  background: #25262a;
+  color: #fff;
+  box-shadow: 0 20rpx 42rpx rgba(37, 38, 42, 0.16);
+}
+
+.focus-heading {
+  display: flex;
+  align-items: center;
+}
+
+.focus-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 70rpx;
+  width: 70rpx;
+  height: 70rpx;
+  margin-right: 22rpx;
+  border-radius: 22rpx;
+  background: #c7f348;
+}
+
+.focus-icon image {
+  width: 38rpx;
+  height: 38rpx;
+}
+
+.focus-kicker,
+.focus-title {
+  display: block;
+}
+
+.focus-kicker {
+  color: #c7f348;
+  font-size: 20rpx;
+  font-weight: 700;
+}
+
+.focus-title {
+  margin-top: 8rpx;
+  font-size: 29rpx;
+  font-weight: 700;
+  line-height: 1.35;
+}
+
+.focus-copy {
+  display: block;
+  margin-top: 22rpx;
+  color: #c9cad0;
+  font-size: 23rpx;
+  line-height: 1.65;
+}
+
+.focus-action {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 64rpx;
+  margin: 24rpx 0 0;
+  padding: 0 24rpx;
+  border-radius: 20rpx;
+  background: #c7f348;
+  color: #25262a;
+  font-size: 22rpx;
+  font-weight: 700;
+}
+
+.metric-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18rpx;
+  margin-top: 22rpx;
+}
+
+.metric-card {
+  min-height: 172rpx;
+  padding: 26rpx 24rpx;
+}
+
+.metric-card.lime {
+  background: #eef8c9;
+}
+
+.metric-value {
+  display: block;
+  margin-top: 12rpx;
+  font-size: 32rpx;
+  font-weight: 750;
+}
+
+.metric-note {
+  display: block;
+  margin-top: 12rpx;
+  color: #858792;
+  font-size: 18rpx;
+  line-height: 1.4;
+}
+
+.next-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 22rpx;
+  padding: 26rpx 28rpx;
+}
+
+.next-title {
+  display: block;
+  margin-top: 8rpx;
+  font-size: 25rpx;
+  font-weight: 700;
+}
+
+.next-amount {
+  font-size: 26rpx;
+  font-weight: 750;
+}

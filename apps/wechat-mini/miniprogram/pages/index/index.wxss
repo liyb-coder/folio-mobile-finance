@@ -1,0 +1,120 @@
+.page-shell {
+  box-sizing: border-box;
+  min-height: 100vh;
+  padding: 56rpx 40rpx 72rpx;
+}
+
+.brand-row,
+.status-row,
+.checkpoint {
+  align-items: center;
+  display: flex;
+}
+
+.brand-mark {
+  align-items: center;
+  background: var(--folio-charcoal);
+  border-radius: 24rpx;
+  color: var(--folio-lime);
+  display: flex;
+  font-size: 34rpx;
+  font-weight: 700;
+  height: 88rpx;
+  justify-content: center;
+  margin-right: 24rpx;
+  width: 88rpx;
+}
+
+.eyebrow,
+.brand-name,
+.hero-label,
+.hero-title,
+.hero-copy {
+  display: block;
+}
+
+.eyebrow,
+.hero-label {
+  color: var(--folio-lilac);
+  font-size: 22rpx;
+  font-weight: 700;
+  letter-spacing: 2rpx;
+}
+
+.brand-name {
+  font-size: 32rpx;
+  font-weight: 700;
+  line-height: 1.45;
+  margin-top: 4rpx;
+}
+
+.hero {
+  background: #dedee6;
+  border-radius: 48rpx;
+  margin-top: 64rpx;
+  padding: 48rpx 40rpx 28rpx;
+}
+
+.hero-title {
+  font-size: 52rpx;
+  font-weight: 750;
+  letter-spacing: -1rpx;
+  line-height: 1.22;
+  margin-top: 18rpx;
+}
+
+.hero-copy {
+  color: var(--folio-muted);
+  font-size: 27rpx;
+  line-height: 1.75;
+  margin-top: 24rpx;
+}
+
+.contract-canvas {
+  height: 190rpx;
+  margin-top: 24rpx;
+  width: 100%;
+}
+
+.checkpoint-list {
+  background: #ffffff;
+  border-radius: 40rpx;
+  margin-top: 28rpx;
+  padding: 26rpx 34rpx;
+}
+
+.checkpoint {
+  color: var(--folio-charcoal);
+  font-size: 28rpx;
+  line-height: 1.55;
+  min-height: 76rpx;
+}
+
+.checkpoint-dot {
+  background: var(--folio-lime);
+  border: 6rpx solid var(--folio-charcoal);
+  border-radius: 50%;
+  height: 12rpx;
+  margin-right: 22rpx;
+  width: 12rpx;
+}
+
+.status-row {
+  justify-content: space-between;
+  margin-top: 32rpx;
+  padding: 0 8rpx;
+}
+
+.status-pill {
+  background: var(--folio-lime);
+  border-radius: 999rpx;
+  color: var(--folio-charcoal);
+  font-size: 22rpx;
+  font-weight: 700;
+  padding: 12rpx 20rpx;
+}
+
+.status-copy {
+  color: var(--folio-muted);
+  font-size: 23rpx;
+}

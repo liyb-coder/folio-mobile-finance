@@ -1,0 +1,27 @@
+<view class="page-shell assistant-page">
+  <folio-header />
+
+  <view class="assistant-hero">
+    <view class="hero-mark"><image src="/assets/icons/sparkle.png" mode="aspectFit" /></view>
+    <text class="hero-kicker">Folio AI 管家</text>
+    <text class="hero-title">用自然语言，管理你的每一笔钱</text>
+    <text class="hero-copy">你说变化，AI 整理成可核对的项目，确认后才能更新。</text>
+    <button class="assistant-composer" bindtap="openCapture">
+      <image src="/assets/icons/paperclip.png" mode="aspectFit" />
+      <text>例如：这个月支出多少？也可以记一笔…</text>
+      <view class="mic-end"><image src="/assets/icons/microphone-fill.png" mode="aspectFit" /></view>
+    </button>
+    <image class="assistant-cat" src="/assets/brand/folio-cat-avatar.png" mode="aspectFit" />
+  </view>
+
+  <view class="capability-grid">
+    <view class="capability-card folio-card"><image src="/assets/icons/microphone-dark.png" mode="aspectFit" /><text class="capability-title">语音与文字记账</text><text class="subtle">将混合表达拆成逐项待确认内容。</text></view>
+    <view class="capability-card folio-card"><image src="/assets/icons/file.png" mode="aspectFit" /><text class="capability-title">文档与截图</text><text class="subtle">保留来源证据，不直接改动数据。</text></view>
+    <view class="capability-card folio-card"><image src="/assets/icons/trend.png" mode="aspectFit" /><text class="capability-title">长期理财地图</text><text class="subtle">在真实记录上生成可解释的规划建议。</text></view>
+  </view>
+
+  <view class="integration-status">
+    <text>DeepSeek 测试 BFF</text>
+    <text>下一里程碑接入</text>
+  </view>
+</view>

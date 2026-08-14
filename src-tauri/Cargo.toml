@@ -1,0 +1,54 @@
+[package]
+name = "folio"
+version = "0.1.0"
+description = "Local-first personal finance cockpit"
+authors = ["Folio contributors"]
+license = "UNLICENSED"
+edition = "2021"
+rust-version = "1.88"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[lib]
+name = "folio_lib"
+crate-type = ["staticlib", "cdylib", "rlib"]
+
+[build-dependencies]
+tauri-build = { version = "2.6.3", features = [] }
+cc = "1.3.0"
+
+[dependencies]
+serde_json = "1.0"
+serde = { version = "1.0", features = ["derive"] }
+log = "0.4"
+tauri = { version = "2.11.3", features = [] }
+tauri-plugin-log = "2"
+tauri-plugin-dialog = "2.7.2"
+argon2 = "0.5.3"
+base64 = "0.22.1"
+chacha20poly1305 = "0.10.1"
+getrandom = "0.4.3"
+hex = "0.4.3"
+rusqlite = { version = "0.40.1", features = ["backup", "bundled-sqlcipher-vendored-openssl"] }
+zeroize = "1.9.0"
+calamine = { version = "0.36.0", features = ["chrono"] }
+chrono = { version = "0.4.45", default-features = false, features = ["std"] }
+csv = "1.3.1"
+sha2 = "0.11.0"
+sha2_10 = { package = "sha2", version = "0.10.9" }
+hkdf = "0.12.4"
+x25519-dalek = { version = "2.0.1", features = ["static_secrets"] }
+zip = { version = "8.6.0", default-features = false, features = ["deflate"] }
+reqwest = { version = "0.12.24", default-features = false, features = ["json", "rustls-tls"] }
+imap = "2.4.1"
+native-tls = "0.2.14"
+mail-parser = "0.11.5"
+regex = "1.12.2"
+tokio = { version = "1.49.0", features = ["io-util", "process", "time"] }
+
+[target.'cfg(any(target_os = "macos", target_os = "ios"))'.dependencies]
+objc2-local-authentication = "0.3.2"
+security-framework = { version = "3.7.0", features = ["OSX_10_15"] }
+
+[dev-dependencies]
+tempfile = "3.27.0"

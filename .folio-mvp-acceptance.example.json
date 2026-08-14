@@ -1,0 +1,10 @@
+{
+  "touchIdAndPassword": false,
+  "restartUnlock": false,
+  "realDataImportReconciliation": false,
+  "duplicateImport": false,
+  "backupRestore": false,
+  "portableExport": false,
+  "cleanInstallUpgrade": false,
+  "forcedQuitRecovery": false
+}
