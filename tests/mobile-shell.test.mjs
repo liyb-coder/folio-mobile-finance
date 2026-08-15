@@ -14,13 +14,38 @@ const viteConfig = readFileSync(resolve(root, "vite.config.mjs"), "utf8");
 
 test("native workspace has a persistent mobile nav with the voice action in the center slot", () => {
   assert.match(app, /className="local-mobile-nav"/);
-  assert.match(app, /localNavItems\.slice\(0,\s*2\)/);
+  assert.match(app, /aria-label="总览"/);
+  assert.match(app, /aria-label="资产流水"/);
   assert.match(app, /className="local-mobile-voice"/);
-  assert.match(app, /item\.id === "reminders" \|\| item\.id === "assistant"/);
-  assert.doesNotMatch(app, /active === "assistant" \?/);
-  assert.doesNotMatch(app, /local-mobile-voice-spacer/);
+  assert.match(app, /aria-label="提醒"/);
+  assert.match(app, /aria-label="我的"/);
+  assert.match(app, /<span>资产流水<\/span>/);
+  assert.match(app, /<span>我的<\/span>/);
   assert.match(styles, /\.local-mobile-nav\s*\{[\s\S]*grid-template-columns:\s*repeat\(5/);
   assert.match(styles, /env\(safe-area-inset-bottom\)/);
+});
+
+test("mobile assets and cashflow share one polished tabbed destination", () => {
+  assert.match(app, /function LocalFinanceHub/);
+  assert.match(app, /role="tablist" aria-label="切换资产与流水"/);
+  assert.match(app, /\{ id: "assets", label: "资产" \}/);
+  assert.match(app, /\{ id: "cashflow", label: "流水" \}/);
+  assert.match(app, /active === "assets" \|\| active === "cashflow"/);
+  assert.match(styles, /\.finance-hub-tabs\s*\{[\s\S]*grid-template-columns:\s*repeat\(2/);
+  assert.match(styles, /\.finance-hub-tabs button\.active\s*\{[\s\S]*background:\s*var\(--ink\)/);
+});
+
+test("mobile profile replaces the assistant tab while keeping the assistant reachable", () => {
+  assert.match(app, /function LocalProfile/);
+  assert.match(app, /label: "应用密码与生物识别"/);
+  assert.match(app, /label: "本地数据"/);
+  assert.match(app, /label: "导入与导出"/);
+  assert.match(app, /label: "QQ 邮箱"/);
+  assert.match(app, /label: "偏好设置"/);
+  assert.match(app, />我的助手</);
+  assert.match(app, /onNavigate\("assistant"\)/);
+  assert.match(styles, /\.local-profile-hero/);
+  assert.match(styles, /\.local-profile-menu/);
 });
 
 test("mobile AI capture is one concise hub for voice, documents, and text", () => {

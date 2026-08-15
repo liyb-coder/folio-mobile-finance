@@ -2865,6 +2865,129 @@ textarea:focus-visible {
   line-height: 1.55;
 }
 
+.finance-hub {
+  display: grid;
+  gap: 14px;
+}
+
+.profile-page {
+  width: min(820px, 100%);
+  margin: 0 auto;
+  display: grid;
+  gap: 18px;
+}
+
+.profile-hero-card {
+  min-height: 176px;
+  padding: 26px 30px;
+  border-radius: 30px;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  background: #e1e1e8;
+  box-shadow: 0 18px 45px rgba(57, 55, 73, .07);
+}
+
+.profile-hero-card > img {
+  width: 108px;
+  height: 108px;
+  border: 2px solid rgba(255, 255, 255, .95);
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 10px 24px rgba(37, 38, 42, .12);
+}
+
+.profile-hero-card h2 {
+  margin: 0;
+  font-size: 27px;
+  letter-spacing: -.04em;
+}
+
+.profile-hero-card p {
+  margin: 8px 0 0;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #667947;
+  font-size: 11px;
+}
+
+.profile-hero-card p svg {
+  width: 14px;
+  height: 14px;
+}
+
+.profile-hero-card small {
+  display: block;
+  margin-top: 5px;
+  color: #8b8d94;
+  font-size: 9px;
+}
+
+.profile-menu-card {
+  padding: 12px 22px;
+  border-radius: 30px;
+  background: rgba(255, 255, 255, .76);
+  box-shadow: 0 18px 45px rgba(57, 55, 73, .05);
+}
+
+.profile-menu-card > button {
+  width: 100%;
+  min-height: 68px;
+  padding: 0 5px;
+  border-bottom: 1px solid rgba(37, 38, 42, .11);
+  display: grid;
+  grid-template-columns: 38px minmax(0, 1fr) 18px;
+  align-items: center;
+  gap: 12px;
+  color: var(--ink);
+  background: transparent;
+  text-align: left;
+}
+
+.profile-menu-card > button:last-child {
+  border-bottom: 0;
+}
+
+.profile-menu-card > button.assistant-entry {
+  margin-top: 2px;
+  border-top: 1px solid rgba(37, 38, 42, .11);
+}
+
+.profile-menu-card > button > span:first-child {
+  width: 38px;
+  height: 38px;
+  display: grid;
+  place-items: center;
+}
+
+.profile-menu-card > button > span:first-child svg {
+  width: 24px;
+  height: 24px;
+}
+
+.profile-menu-card > button > span:nth-child(2),
+.profile-menu-card b,
+.profile-menu-card small {
+  display: block;
+}
+
+.profile-menu-card b {
+  font-size: 13px;
+}
+
+.profile-menu-card small {
+  margin-top: 3px;
+  color: #8b8d94;
+  font-size: 9px;
+}
+
+.profile-menu-card > button > svg {
+  width: 17px;
+  height: 17px;
+  color: #7b7d84;
+}
+
 .assistant-page {
   max-width: 1050px;
   margin: 0 auto;
@@ -3742,6 +3865,20 @@ textarea:focus-visible {
   .top-actions .avatar { display: none; }
   .top-actions .voice-primary { display: none; }
   .page-content { padding: 10px 14px 50px; }
+  .finance-hub { gap: 13px; }
+  .profile-page { gap: 16px; }
+  .profile-hero-card {
+    min-height: 154px;
+    padding: 22px 20px;
+    border-radius: 27px;
+    gap: 20px;
+  }
+  .profile-hero-card > img { width: 96px; height: 96px; }
+  .profile-hero-card h2 { font-size: 23px; }
+  .profile-menu-card { padding: 10px 17px; border-radius: 27px; }
+  .profile-menu-card > button { min-height: 64px; grid-template-columns: 36px minmax(0, 1fr) 17px; gap: 10px; }
+  .profile-menu-card > button > span:first-child { width: 36px; height: 36px; }
+  .profile-menu-card b { font-size: 12px; }
   .hero-grid { grid-template-columns: 1fr; }
   .net-worth-card { min-height: 280px; padding: 22px; }
   .ai-focus-card { min-height: 260px; }
@@ -3882,9 +4019,9 @@ textarea:focus-visible {
   .transaction-row { grid-template-columns: 34px 1fr 92px; }
   .transaction-row time { display: none; }
   .transaction-row strong { font-size: 10px; }
-  .page-summary { min-height: 150px; padding: 22px; }
+  .page-summary { min-height: 158px; padding: 22px; }
   .page-summary strong { font-size: 30px; }
-  .page-summary button { font-size: 0; width: 40px; padding: 0; justify-content: center; }
+  .page-summary button { min-width: 88px; width: auto; padding: 0 13px; justify-content: center; font-size: 10px; }
   .page-summary button svg,
   .reminder-hero button svg { width: 18px; height: 18px; }
   .panel-head.responsive { display: grid; }
@@ -6705,6 +6842,169 @@ textarea:focus-visible {
 .danger-button svg {
   width: 16px;
   height: 16px;
+}
+
+.local-finance-hub {
+  display: grid;
+  gap: 14px;
+}
+
+.finance-hub-tabs {
+  width: min(430px, 100%);
+  min-height: 44px;
+  margin: 0 auto;
+  padding: 4px;
+  border: 1px solid rgba(37, 38, 42, .06);
+  border-radius: 15px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  background: rgba(225, 225, 232, .76);
+  box-shadow: inset 0 1px 2px rgba(37, 38, 42, .04);
+}
+
+.finance-hub-tabs button {
+  min-width: 0;
+  min-height: 34px;
+  border-radius: 11px;
+  color: #6f7179;
+  background: transparent;
+  font-size: 12px;
+  font-weight: 650;
+  letter-spacing: .01em;
+  transition: color .18s ease, background .18s ease, box-shadow .18s ease;
+}
+
+.finance-hub-tabs button.active {
+  color: #fff;
+  background: var(--ink);
+  box-shadow: 0 5px 12px rgba(37, 38, 42, .18);
+}
+
+.local-finance-hub-content > .subpage {
+  width: 100%;
+}
+
+.local-profile-page {
+  width: min(820px, 100%);
+  margin: 0 auto;
+  display: grid;
+  gap: 18px;
+}
+
+.local-profile-hero {
+  min-height: 176px;
+  padding: 26px 30px;
+  border: 1px solid rgba(37, 38, 42, .05);
+  border-radius: 30px;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  background: #e1e1e8;
+  box-shadow: 0 18px 45px rgba(57, 55, 73, .07);
+}
+
+.local-profile-hero > img {
+  width: 108px;
+  height: 108px;
+  border: 2px solid rgba(255, 255, 255, .95);
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 10px 24px rgba(37, 38, 42, .12);
+}
+
+.local-profile-hero h2 {
+  margin: 0;
+  font-size: 27px;
+  letter-spacing: -.04em;
+}
+
+.local-profile-hero p {
+  margin: 8px 0 0;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #667947;
+  font-size: 11px;
+}
+
+.local-profile-hero p svg {
+  width: 14px;
+  height: 14px;
+  color: #708c43;
+}
+
+.local-profile-hero small {
+  display: block;
+  margin-top: 5px;
+  color: #8b8d94;
+  font-size: 9px;
+}
+
+.local-profile-menu {
+  padding: 12px 22px;
+  border: 1px solid rgba(37, 38, 42, .05);
+  border-radius: 30px;
+  background: rgba(255, 255, 255, .76);
+  box-shadow: 0 18px 45px rgba(57, 55, 73, .05);
+}
+
+.local-profile-menu > button {
+  width: 100%;
+  min-height: 68px;
+  padding: 0 5px;
+  border-bottom: 1px solid rgba(37, 38, 42, .11);
+  display: grid;
+  grid-template-columns: 38px minmax(0, 1fr) 18px;
+  align-items: center;
+  gap: 12px;
+  color: var(--ink);
+  background: transparent;
+  text-align: left;
+}
+
+.local-profile-menu > button:last-child {
+  border-bottom: 0;
+}
+
+.local-profile-menu > button.assistant-entry {
+  margin-top: 2px;
+  border-top: 1px solid rgba(37, 38, 42, .11);
+}
+
+.local-profile-menu-icon {
+  width: 38px;
+  height: 38px;
+  display: grid;
+  place-items: center;
+}
+
+.local-profile-menu-icon svg {
+  width: 24px;
+  height: 24px;
+  color: #4f5158;
+}
+
+.local-profile-menu-copy,
+.local-profile-menu-copy b,
+.local-profile-menu-copy small {
+  display: block;
+}
+
+.local-profile-menu-copy b {
+  font-size: 13px;
+  font-weight: 650;
+}
+
+.local-profile-menu-copy small {
+  margin-top: 3px;
+  color: #8b8d94;
+  font-size: 9px;
+}
+
+.local-profile-menu > button > svg {
+  width: 17px;
+  height: 17px;
+  color: #7b7d84;
 }
 
 .local-cashflow-view {
@@ -11393,6 +11693,75 @@ textarea:focus-visible {
 
   .local-content {
     padding: 10px 12px calc(118px + env(safe-area-inset-bottom));
+  }
+
+  .local-finance-hub {
+    gap: 13px;
+    margin-top: -10px;
+  }
+
+  .finance-hub-tabs {
+    width: calc(100% - 48px);
+    min-height: 40px;
+    padding: 3px;
+    border-radius: 13px;
+    background: rgba(225, 225, 232, .82);
+  }
+
+  .finance-hub-tabs button {
+    min-height: 33px;
+    border-radius: 10px;
+    font-size: 12px;
+  }
+
+  .local-profile-page {
+    margin-top: 8px;
+    gap: 18px;
+  }
+
+  .local-profile-hero {
+    min-height: 168px;
+    padding: 22px 16px;
+    border-radius: 27px;
+    gap: 16px;
+  }
+
+  .local-profile-hero > img {
+    width: 90px;
+    height: 90px;
+  }
+
+  .local-profile-hero h2 {
+    font-size: 23px;
+  }
+
+  .local-profile-hero p {
+    font-size: 10px;
+  }
+
+  .local-profile-menu {
+    padding: 10px 17px;
+    border-radius: 27px;
+  }
+
+  .local-profile-menu > button {
+    min-height: 64px;
+    grid-template-columns: 36px minmax(0, 1fr) 17px;
+    gap: 10px;
+  }
+
+  .local-profile-menu-icon {
+    width: 36px;
+    height: 36px;
+  }
+
+  .local-profile-menu-icon svg {
+    width: 23px;
+    height: 23px;
+  }
+
+  .local-profile-menu-copy b {
+    font-size: 12px;
   }
 
   .local-mobile-scrim {

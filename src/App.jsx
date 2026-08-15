@@ -47,6 +47,7 @@ import {
   TrendDown,
   TrendUp,
   UploadSimple,
+  UserCircle,
   Wallet,
   Warning,
   X,
@@ -549,6 +550,35 @@ function CashflowPage({ hidden, onNotify, onOpenAction }) {
   );
 }
 
+function FinanceHubPage({ tab, onTabChange, hidden, onNotify, onNavigate, onOpenAction }) {
+  return (
+    <section className="finance-hub" aria-label="资产与流水">
+      <div className="finance-hub-tabs" role="tablist" aria-label="切换资产与流水">
+        {[
+          { id: "assets", label: "资产" },
+          { id: "cashflow", label: "流水" },
+        ].map((item) => (
+          <button
+            key={item.id}
+            type="button"
+            role="tab"
+            aria-selected={tab === item.id}
+            className={tab === item.id ? "active" : ""}
+            onClick={() => onTabChange(item.id)}
+          >
+            {item.label}
+          </button>
+        ))}
+      </div>
+      <div role="tabpanel">
+        {tab === "cashflow"
+          ? <CashflowPage hidden={hidden} onNotify={onNotify} onOpenAction={onOpenAction} />
+          : <AssetsPage hidden={hidden} onNotify={onNotify} onNavigate={onNavigate} onOpenAction={onOpenAction} />}
+      </div>
+    </section>
+  );
+}
+
 function PlanningPage({ hidden, onNotify, onOpenAction }) {
   const [mix, setMix] = useState({ cash: 20, stable: 38, equity: 30, gold: 12 });
   const totalMix = Object.values(mix).reduce((sum, value) => sum + value, 0);
@@ -774,6 +804,44 @@ function AssistantPage({ onVoice }) {
         <article><span><ChartLineUp /></span><h3>基金持仓分析</h3><p>识别行业与大类资产敞口，结合市场波动给出关注提示。</p></article>
       </section>
       <section className="panel guardrail"><ShieldCheck weight="duotone" /><div><h2>金额安全护栏</h2><p>不确定的数字会标红，缺失信息会主动追问；任何资产变更都需要你逐项确认，并保留原始语音与修改记录。</p></div><span>已开启</span></section>
+    </div>
+  );
+}
+
+function ProfilePage({ onNavigate, onNotify }) {
+  const profileActions = [
+    { label: "应用密码与生物识别", detail: "密码、Face ID 与 Touch ID", icon: Key, target: "settings" },
+    { label: "本地数据", detail: "本机存储与数据安全", icon: Database, target: "settings" },
+    { label: "导入与导出", detail: "迁移、备份与恢复", icon: UploadSimple, target: "sources" },
+    { label: "QQ 邮箱", detail: "只读账单连接", icon: Globe, target: "sources" },
+    { label: "偏好设置", detail: "提醒、字段与显示选项", icon: SlidersHorizontal, target: "settings" },
+  ];
+
+  return (
+    <div className="profile-page">
+      <section className="profile-hero-card">
+        <img src="/assets/brand/folio-cat-avatar.png" alt="被子beizi 的猫猫头像" />
+        <div>
+          <h2>被子beizi</h2>
+          <p><ShieldCheck weight="fill" /> 本地数据已保护</p>
+          <small>个人账户</small>
+        </div>
+      </section>
+
+      <section className="profile-menu-card">
+        {profileActions.map(({ label, detail, icon: Icon, target }) => (
+          <button key={label} type="button" onClick={() => { onNavigate(target); onNotify(`已打开${label}`); }}>
+            <span><Icon /></span>
+            <span><b>{label}</b><small>{detail}</small></span>
+            <ArrowRight />
+          </button>
+        ))}
+        <button type="button" className="assistant-entry" onClick={() => onNavigate("assistant")}>
+          <span><Sparkle /></span>
+          <span><b>我的助手</b><small>仅整理，确认后写入</small></span>
+          <ArrowRight />
+        </button>
+      </section>
     </div>
   );
 }
@@ -1075,6 +1143,7 @@ function ContextVoiceButton({ active, onVoice }) {
 
 export function App({ showDemoBanner = true }) {
   const [active, setActive] = useState("overview");
+  const [financeTab, setFinanceTab] = useState("assets");
   const [hidden, setHidden] = useState(false);
   const [voiceOpen, setVoiceOpen] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -1089,9 +1158,19 @@ export function App({ showDemoBanner = true }) {
   };
   const title = useMemo(() => ({
     ...Object.fromEntries(navItems.map((item) => [item.id, item.label])),
+    assets: "资产流水",
+    profile: "我的",
     sources: "数据中心",
     settings: "设置",
   })[active] || "总览", [active]);
+  const navigate = (nextActive) => {
+    if (nextActive === "assets" || nextActive === "cashflow") {
+      setFinanceTab(nextActive);
+      setActive("assets");
+      return;
+    }
+    setActive(nextActive);
+  };
   const notify = (message) => {
     setToast(message);
     window.setTimeout(() => setToast(""), 4200);
@@ -1102,12 +1181,13 @@ export function App({ showDemoBanner = true }) {
   }, [active]);
 
   const content = {
-    overview: <Dashboard hidden={hidden} onToggleHidden={() => setHidden((v) => !v)} onNavigate={setActive} onNotify={notify} onOpenAction={setActionModal} summaryField={summaryFields[summaryFieldKey]} />,
-    assets: <AssetsPage hidden={hidden} onNotify={notify} onNavigate={setActive} onOpenAction={setActionModal} />,
-    cashflow: <CashflowPage hidden={hidden} onNotify={notify} onOpenAction={setActionModal} />,
+    overview: <Dashboard hidden={hidden} onToggleHidden={() => setHidden((v) => !v)} onNavigate={navigate} onNotify={notify} onOpenAction={setActionModal} summaryField={summaryFields[summaryFieldKey]} />,
+    assets: <FinanceHubPage tab={financeTab} onTabChange={setFinanceTab} hidden={hidden} onNotify={notify} onNavigate={navigate} onOpenAction={setActionModal} />,
+    cashflow: <FinanceHubPage tab="cashflow" onTabChange={setFinanceTab} hidden={hidden} onNotify={notify} onNavigate={navigate} onOpenAction={setActionModal} />,
     planning: <PlanningPage hidden={hidden} onNotify={notify} onOpenAction={setActionModal} />,
     reminders: <RemindersPage onNotify={notify} onOpenAction={setActionModal} />,
     assistant: <AssistantPage onVoice={() => setVoiceOpen(true)} />,
+    profile: <ProfilePage onNavigate={navigate} onNotify={notify} />,
     sources: <DataSourcesPage onNotify={notify} onVoice={() => setVoiceOpen(true)} />,
     settings: <SettingsPage summaryFieldKey={summaryFieldKey} onSummaryFieldChange={(key) => { setSummaryFieldKey(key); notify(`首页指标已切换为“${summaryFields[key].label}”`); }} onNotify={notify} />,
   }[active];
@@ -1120,24 +1200,24 @@ export function App({ showDemoBanner = true }) {
           <span><b>公开虚构演示</b> · 不含、不保存也不应输入真实财务数据</span>
         </div>
       )}
-      <Sidebar active={active} onChange={setActive} mobileOpen={mobileOpen} onClose={() => setMobileOpen(false)} />
+      <Sidebar active={active === "assets" ? financeTab : active} onChange={navigate} mobileOpen={mobileOpen} onClose={() => setMobileOpen(false)} />
       {mobileOpen && <button className="mobile-scrim" onClick={() => setMobileOpen(false)} aria-label="关闭菜单" />}
       <main className="main-area">
         <Header title={title} onMenu={() => setMobileOpen(true)} />
         <div className="page-content">{content}</div>
       </main>
       <nav className="mobile-nav" aria-label="移动端导航">
-        {navItems.slice(0, 2).map((item) => { const Icon = item.icon; return <button key={item.id} className={active === item.id ? "active" : ""} onClick={() => setActive(item.id)}><Icon weight={active === item.id ? "fill" : "regular"} /><span>{item.label}</span></button>; })}
-        {active === "assistant" ? <span className="mobile-voice-spacer" aria-hidden="true" /> : (
-          <button className="mobile-voice-button" onClick={() => setVoiceOpen(true)} aria-label="语音记一笔">
-            <i><Microphone weight="fill" /></i>
-            <span>记一笔</span>
-          </button>
-        )}
-        {navItems.filter((item) => item.id === "reminders" || item.id === "assistant").map((item) => { const Icon = item.icon; return <button key={item.id} className={active === item.id ? "active" : ""} onClick={() => setActive(item.id)}><Icon weight={active === item.id ? "fill" : "regular"} /><span>{item.label}</span></button>; })}
+        <button className={active === "overview" ? "active" : ""} onClick={() => navigate("overview")}><HouseLine weight={active === "overview" ? "fill" : "regular"} /><span>总览</span></button>
+        <button className={active === "assets" || active === "cashflow" ? "active" : ""} onClick={() => navigate("assets")}><Wallet weight={active === "assets" || active === "cashflow" ? "fill" : "regular"} /><span>资产流水</span></button>
+        <button className="mobile-voice-button" onClick={() => setVoiceOpen(true)} aria-label="语音记一笔">
+          <i><Microphone weight="fill" /></i>
+          <span>记一笔</span>
+        </button>
+        <button className={active === "reminders" ? "active" : ""} onClick={() => navigate("reminders")}><CalendarBlank weight={active === "reminders" ? "fill" : "regular"} /><span>提醒</span></button>
+        <button className={active === "profile" ? "active" : ""} onClick={() => navigate("profile")}><UserCircle weight={active === "profile" ? "fill" : "regular"} /><span>我的</span></button>
       </nav>
-      {active !== "assistant" && <ContextVoiceButton active={active} onVoice={() => setVoiceOpen(true)} />}
-      {actionModal && <ActionModal key={actionModal} type={actionModal} onClose={() => setActionModal("")} onNavigate={setActive} onSubmit={(type) => {
+      {active !== "assistant" && <ContextVoiceButton active={active === "assets" ? financeTab : active} onVoice={() => setVoiceOpen(true)} />}
+      {actionModal && <ActionModal key={actionModal} type={actionModal} onClose={() => setActionModal("")} onNavigate={navigate} onSubmit={(type) => {
         const messages = {
           "add-account": "账户草稿已保存，等待确认后写入资产",
           "add-transaction": "流水草稿已保存，等待账单对账",
@@ -1148,7 +1228,7 @@ export function App({ showDemoBanner = true }) {
         notify(messages[type]);
         setActionModal("");
       }} />}
-      {voiceOpen && <VoiceModal active={active} onClose={() => setVoiceOpen(false)} onCommitted={notify} />}
+      {voiceOpen && <VoiceModal active={active === "assets" ? financeTab : active} onClose={() => setVoiceOpen(false)} onCommitted={notify} />}
       {toast && <div className="toast"><CheckCircle weight="fill" /><span><b>操作已完成</b><small>{toast}</small></span><button onClick={() => setToast("")}><X /></button></div>}
     </div>
   );

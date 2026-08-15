@@ -51,6 +51,8 @@ Build app UI in `src/`. Keep `.openai/hosting.json`, `worker/index.js`, `scripts
 - On mobile, place the unified AI capture action at the center of the persistent bottom navigation for one-handed reach. It must make voice, screenshot/document, and text capture immediately understandable.
 - Keep the center mobile capture action visible on every module, including the AI assistant page; the assistant's in-page composer complements this persistent entry point and never replaces it.
 - Mobile icon-only dark buttons must always show a clear Phosphor icon and accessible label; never leave an unexplained blank dark square.
+- Mobile primary navigation combines assets and cashflow into one “资产流水” destination with a polished two-segment switcher. Keep both data-rich modules and their existing review/confirm behavior intact behind that shared entry.
+- The fifth mobile navigation item is “我的”, not “AI 管家”. “我的” owns profile, local security/data, import/export, QQ Mail and preference entry points; the AI assistant remains reachable as the clearly labeled “我的助手” row.
 - Mobile copy should be brief and action-led. Avoid repeating privacy or workflow explanations across stacked cards; keep one concise safety cue in the main flow and move secondary detail to settings or progressive disclosure.
 - Avoid redundant mobile card layers, step strips, decorative status blocks, and duplicate actions when they do not help the user complete the current task.
 - “活期可用” is the default configurable secondary metric in the net-worth card.

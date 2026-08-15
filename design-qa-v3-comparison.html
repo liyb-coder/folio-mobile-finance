@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Folio mobile design QA comparison</title>
+  <style>
+    * { box-sizing: border-box; }
+    html, body { margin: 0; background: #17181b; font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", sans-serif; }
+    body { width: 1263px; padding: 18px; color: #f5f5f6; }
+    header { margin-bottom: 14px; }
+    h1 { margin: 0; font-size: 18px; }
+    p { margin: 5px 0 0; color: #aeb0b7; font-size: 12px; }
+    .grid { display: grid; grid-template-columns: repeat(3, 393px); gap: 14px; }
+    figure { margin: 0; }
+    figcaption { height: 28px; padding: 0 5px; display: flex; align-items: center; color: #c7c9cf; font-size: 11px; }
+    .frame { width: 393px; height: 852px; overflow: hidden; background: #eeeff1; box-shadow: 0 9px 30px rgba(0,0,0,.24); }
+    .frame img { display: block; }
+    .source img { position: relative; width: auto; height: 852px; max-width: none; }
+    .source-assets img { left: 0; }
+    .source-cashflow img { left: -406px; }
+    .source-profile img { left: -811px; }
+    .implementation img { width: 393px; height: 852px; }
+    .row-gap { grid-column: 1 / -1; height: 4px; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Folio Mobile · Source vs implementation</h1>
+    <p>393 × 852 CSS px · source normalized by height · implementation at DPR 1</p>
+  </header>
+  <main class="grid">
+    <figure><figcaption>Source · assets</figcaption><div class="frame source source-assets"><img src="design-audit/reference-unified-finance-profile.png" alt="" /></div></figure>
+    <figure><figcaption>Source · cashflow</figcaption><div class="frame source source-cashflow"><img src="design-audit/reference-unified-finance-profile.png" alt="" /></div></figure>
+    <figure><figcaption>Source · profile</figcaption><div class="frame source source-profile"><img src="design-audit/reference-unified-finance-profile.png" alt="" /></div></figure>
+    <div class="row-gap"></div>
+    <figure><figcaption>Implementation · assets</figcaption><div class="frame implementation"><img src="implementation-assets-mobile.png" alt="" /></div></figure>
+    <figure><figcaption>Implementation · cashflow</figcaption><div class="frame implementation"><img src="implementation-cashflow-mobile.png" alt="" /></div></figure>
+    <figure><figcaption>Implementation · profile</figcaption><div class="frame implementation"><img src="implementation-profile-mobile.png" alt="" /></div></figure>
+  </main>
+</body>
+</html>

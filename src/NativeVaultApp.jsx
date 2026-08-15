@@ -41,6 +41,7 @@ import {
   Table,
   Trash,
   UploadSimple,
+  UserCircle,
   Vault,
   Wallet,
   WarningCircle,
@@ -220,6 +221,7 @@ const localNavItems = [
 const localViewLabels = {
   ...Object.fromEntries(localNavItems.map(({ id, label }) => [id, label])),
   settings: "安全设置",
+  profile: "我的",
 };
 
 const EMPTY_MODEL_PROVIDER_STATUS = Object.freeze({
@@ -1173,6 +1175,15 @@ function LocalWorkspace({
         }}
       />
     );
+  } else if (active === "profile") {
+    content = (
+      <LocalProfile
+        vault={vault}
+        biometric={biometric}
+        syncStatus={syncStatus}
+        onNavigate={setActive}
+      />
+    );
   } else if (active === "settings") {
     content = (
       <LocalSecuritySettings
@@ -1245,6 +1256,14 @@ function LocalWorkspace({
     );
   } else {
     content = <LocalModule active={active} />;
+  }
+
+  if (active === "assets" || active === "cashflow") {
+    content = (
+      <LocalFinanceHub activeTab={active} onTabChange={setActive}>
+        {content}
+      </LocalFinanceHub>
+    );
   }
 
   const notifyVoice = () => openCapture("voice");
@@ -1351,20 +1370,24 @@ function LocalWorkspace({
       </main>
 
       <nav className="local-mobile-nav" aria-label="移动端主导航">
-        {localNavItems.slice(0, 2).map((item) => {
-          const Icon = item.icon;
-          return (
-            <button
-              key={item.id}
-              className={active === item.id ? "active" : ""}
-              onClick={() => setActive(item.id)}
-              aria-label={item.label}
-            >
-              <Icon weight={active === item.id ? "fill" : "regular"} />
-              <span>{item.label}</span>
-            </button>
-          );
-        })}
+        <button
+          type="button"
+          className={active === "overview" ? "active" : ""}
+          onClick={() => setActive("overview")}
+          aria-label="总览"
+        >
+          <HouseLine weight={active === "overview" ? "fill" : "regular"} />
+          <span>总览</span>
+        </button>
+        <button
+          type="button"
+          className={active === "assets" || active === "cashflow" ? "active" : ""}
+          onClick={() => setActive("assets")}
+          aria-label="资产流水"
+        >
+          <Wallet weight={active === "assets" || active === "cashflow" ? "fill" : "regular"} />
+          <span>资产流水</span>
+        </button>
         <button
           type="button"
           className="local-mobile-voice"
@@ -1374,22 +1397,24 @@ function LocalWorkspace({
           <i><Microphone weight="fill" /></i>
           <span>记一笔</span>
         </button>
-        {localNavItems.filter((item) => (
-          item.id === "reminders" || item.id === "assistant"
-        )).map((item) => {
-          const Icon = item.icon;
-          return (
-            <button
-              key={item.id}
-              className={active === item.id ? "active" : ""}
-              onClick={() => setActive(item.id)}
-              aria-label={item.label}
-            >
-              <Icon weight={active === item.id ? "fill" : "regular"} />
-              <span>{item.label}</span>
-            </button>
-          );
-        })}
+        <button
+          type="button"
+          className={active === "reminders" ? "active" : ""}
+          onClick={() => setActive("reminders")}
+          aria-label="提醒"
+        >
+          <CalendarBlank weight={active === "reminders" ? "fill" : "regular"} />
+          <span>提醒</span>
+        </button>
+        <button
+          type="button"
+          className={active === "profile" ? "active" : ""}
+          onClick={() => setActive("profile")}
+          aria-label="我的"
+        >
+          <UserCircle weight={active === "profile" ? "fill" : "regular"} />
+          <span>我的</span>
+        </button>
       </nav>
 
       {active !== "assistant" && (
@@ -7678,6 +7703,96 @@ function LocalPlanning({
   );
 }
 
+function LocalFinanceHub({ activeTab, onTabChange, children }) {
+  return (
+    <section className="local-finance-hub" aria-label="资产与流水">
+      <div className="finance-hub-tabs" role="tablist" aria-label="切换资产与流水">
+        {[
+          { id: "assets", label: "资产" },
+          { id: "cashflow", label: "流水" },
+        ].map((item) => (
+          <button
+            key={item.id}
+            type="button"
+            role="tab"
+            aria-selected={activeTab === item.id}
+            className={activeTab === item.id ? "active" : ""}
+            onClick={() => onTabChange(item.id)}
+          >
+            {item.label}
+          </button>
+        ))}
+      </div>
+      <div className="local-finance-hub-content" role="tabpanel">
+        {children}
+      </div>
+    </section>
+  );
+}
+
+function LocalProfile({ vault, biometric, syncStatus, onNavigate }) {
+  const profileActions = [
+    {
+      label: "应用密码与生物识别",
+      detail: biometric?.available ? (biometric.enabled ? "生物识别已启用" : "可在本机启用") : "应用密码保护",
+      icon: LockKey,
+      target: "settings",
+    },
+    {
+      label: "本地数据",
+      detail: syncStatus?.enabled ? "端到端密文同步已开启" : "仅保存在此设备",
+      icon: Vault,
+      target: "settings",
+    },
+    {
+      label: "导入与导出",
+      detail: "Markdown、文件与数据迁移",
+      icon: UploadSimple,
+      target: "settings",
+    },
+    {
+      label: "QQ 邮箱",
+      detail: "只读账单连接与待核对记录",
+      icon: EnvelopeSimple,
+      target: "settings",
+    },
+    {
+      label: "偏好设置",
+      detail: "提醒、模型与显示偏好",
+      icon: Gear,
+      target: "settings",
+    },
+  ];
+
+  return (
+    <section className="local-profile-page" aria-labelledby="local-profile-name">
+      <article className="local-profile-hero">
+        <img src="/assets/brand/folio-cat-avatar.png" alt="被子beizi 的猫猫头像" />
+        <div>
+          <h2 id="local-profile-name">被子beizi</h2>
+          <p><ShieldCheck weight="fill" /> 本地数据已保护</p>
+          <small>{vault.displayName}</small>
+        </div>
+      </article>
+
+      <div className="local-profile-menu">
+        {profileActions.map(({ label, detail, icon: Icon, target }) => (
+          <button key={label} type="button" onClick={() => onNavigate(target)}>
+            <span className="local-profile-menu-icon"><Icon weight="regular" /></span>
+            <span className="local-profile-menu-copy"><b>{label}</b><small>{detail}</small></span>
+            <ArrowRight />
+          </button>
+        ))}
+        <button type="button" className="assistant-entry" onClick={() => onNavigate("assistant")}>
+          <span className="local-profile-menu-icon"><Sparkle weight="regular" /></span>
+          <span className="local-profile-menu-copy"><b>我的助手</b><small>仅整理，确认后写入</small></span>
+          <ArrowRight />
+        </button>
+      </div>
+    </section>
+  );
+}
+
 function LocalModule({ active }) {
   const copy = {
     cashflow: ["追加式流水", "确认后的收入、支出和转账只追加事件，不会覆盖历史。", Receipt],
@@ -10174,6 +10289,13 @@ export function VaultPersonalAssetsPreview() {
 }
 
 export function VaultWorkspacePreview({ fixture = "empty", initialSnapshot = null }) {
+  const requestedPreviewView = import.meta.env.DEV
+    ? new URLSearchParams(window.location.search).get("screen")
+    : null;
+  const previewInitialView = ["overview", "assets", "cashflow", "reminders", "profile", "assistant", "settings"]
+    .includes(requestedPreviewView)
+    ? requestedPreviewView
+    : fixture === "sync-conflict" || fixture === "settings" ? "settings" : "overview";
   const [previewSnapshot, setPreviewSnapshot] = useState(
     () => initialSnapshot ?? createWorkspacePreviewSnapshot(fixture),
   );
@@ -11387,7 +11509,7 @@ export function VaultWorkspacePreview({ fixture = "empty", initialSnapshot = nul
       onListSyncConflicts={listPreviewSyncConflicts}
       onInspectSyncConflict={inspectPreviewSyncConflict}
       onKeepLocalSyncConflict={keepLocalPreviewSyncConflict}
-      initialView={fixture === "sync-conflict" || fixture === "settings" ? "settings" : "overview"}
+      initialView={previewInitialView}
       onCreateAccountDraft={createPreviewDraft}
       onUpdateAccountDraft={updatePreviewDraft}
       onArchiveAccountDraft={archivePreviewDraft}
